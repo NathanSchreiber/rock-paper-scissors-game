@@ -1,1 +1,1 @@
-# rock-paper-scissors-game
+# This is a game of rock, paper, scissors
