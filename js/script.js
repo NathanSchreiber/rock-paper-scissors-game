@@ -13,19 +13,59 @@ function getPlayerChoice() {
     return output;
 }
 
-playRound(getPlayerChoice(), getComputerChoice());
-
 // Plays one round, including win/loss cases
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === "Rock" && computerSelection === "Scissors") {
-        return "You Win, Rock beats Scissors!";
+        roundResult = "You Win, Rock beats Scissors!";
+        win = true;
+        tie = null;
+        return roundResult;
     } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
-        return "You win, Scissors beats Paper!";
+        roundResult = "You win, Scissors beats Paper!";
+        win = true;
+        tie = null;
+        return roundResult;
     } else if (playerSelection === "Paper" && computerSelection === "Rock") {
-        return "You win, Paper beats Rock!";
+        roundResult =  "You win, Paper beats Rock!";
+        win = true;
+        tie = null;
+        return roundResult;
     } else if (playerSelection === computerSelection) {
-        return "You tied, try again!";
+        roundResult =  "You tied, try again!";
+        tie = true;
+        win = null;
+        return roundResult;
     } else {
-        return `You lose, ${computerSelection} beats ${playerSelection}`;
+        roundResult =  `You lose, ${computerSelection} beats ${playerSelection}.`;
+        win = false;
+        tie = null;
+        return roundResult;
+    }
+}
+
+// Plays a 5 round game logging the winner and score
+function game() {
+    
+    let player = 0;
+    let computer = 0;
+
+    for (let i = 0; i < 5; i++) {
+        playRound(getPlayerChoice(), getComputerChoice());
+        if (win === true) {
+            player += 1;
+        } else if (tie === true) {
+            player += 0;
+        } else if (win === false) {
+            computer += 1;
+        }
+        console.log(roundResult);
+    }
+
+    if (player > computer) {
+        console.log(`You won ${player} to ${computer}!`);
+    } else if (computer > player) {
+        console.log (`You lost ${computer} to ${player}. Try again!`);
+    } else {
+        console.log (`You tied ${player} to ${computer}. Try again!`);
     }
 }
