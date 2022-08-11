@@ -15,23 +15,14 @@ function getPlayerChoice() {
 
 // Gets buttons and adds them to variables
 const rock = document.querySelector('#rock');
-rock.value = "Rock";
-
 const paper = document.querySelector('#paper');
-paper.value = "Paper";
-
 const scissors = document.querySelector('#scissors');
-scissors.value = "Scissors";
-
 const reset = document.querySelector('#reset');
 
 // Gets divs and sets them to variables
 const roundResults = document.querySelector('.roundResults');
-
 const finalResults = document.querySelector('.finalResults');
-
 const choiceButtons = document.querySelector('.choiceButtons');
-
 const currentScore = document.querySelector(".currentScore");
 
 // Plays round with playerSelection as button clicked,
