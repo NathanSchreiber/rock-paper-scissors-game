@@ -5,18 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <div class="container">
-        <div class="choiceButtons">
-            <button id="rock" class="buttons">Rock</button> <br>
-            <button id="paper" class="buttons">Paper</button> <br>
-            <button id="scissors" class="buttons">Scissors</button>
+        <div class="instructionsContainer">
+            <h3 class="instructionsHeader">Instructions</h3>
+            <ul class="instructionsList">
+                <li>Click the "Rock", "Paper", or "Scissors" button to start with your first choice.</li>
+                <li>Press the "Reset" button to start over.</li>
+                <li>First to 5 points wins.</li>
+                <li>A blue border around the button means player choice, red border means computer choice.</li>
+            </ul>
         </div>
-        <button id="reset" style="margin-top: 20px">Reset</button>
-        <div class="roundResults"></div>
-        <h3 class="currentScore">Player: 0 Computer: 0</h3>
+        <div class="choiceButtons">
+            <button id="rock" class="buttons allButtons">Rock</button> <br>
+            <button id="paper" class="buttons allButtons">Paper</button> <br>
+            <button id="scissors" class="buttons allButtons">Scissors</button>
+        </div>
+        <div class="reset">
+            <button id="reset" class="allButtons">Reset</button>
+        </div>
+        <p class="roundChoices"></p>
+        <p class="roundResults"></p>
         <h2 class="finalResults"></h2>
+        
+    </div>
+    <div class="footer">
+        <h3 class="currentScore">Player: 0 Computer: 0</h3>
     </div>
     
     

@@ -1,0 +1,126 @@
+:root {
+    --blue: rgb(66, 251, 242);
+    --red: rgb(243, 72, 72);
+    --borderYellow: rgb(252, 237, 106);
+}
+
+body {
+    background-color: rgb(31, 30, 30);
+    color: white;
+    font-family: Georgia, serif;
+}
+
+.container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    font-family: Georgia, serif;
+    justify-content: center;
+}
+
+.choiceButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.buttons {
+    font-size: 2rem;
+    margin: auto 4rem;
+    background-color: white;
+    font-family: Georgia, serif;
+}
+
+.reset {
+    display: flex;
+    justify-content: center;
+}
+
+#reset {
+    font-family: Georgia, serif;
+    font-size: 2rem;
+    background-color: white;
+    margin-top: 4.5rem;
+}
+
+.allButtons {
+    width: 35%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    box-shadow: 1.5px 1.5px black;
+    border-radius: 10px;
+    border: 3px solid black;
+    outline: none;
+    transition: ease-out 0.3s;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.instructionsContainer {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    border: 5px solid rgb(252, 237, 106);
+}
+
+.instructionsHeader {
+    display: flex;
+    margin: auto;
+    font-size: 1.5rem;
+}
+
+.instructionsList {
+    font-size: 1.2rem;
+}
+
+.allButtons:before {
+    transition: 0.5s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: "";
+    background-color: rgb(253, 253, 152);
+    border-radius: 10px;
+}
+
+.allButtons:hover:before {
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    z-index: -1;
+}
+
+.roundResults {
+    display: flex;
+    margin: auto;
+    margin-bottom: 2rem;
+    border: 5px solid var(--borderYellow);
+    padding: 1rem;
+    font-size: 1.5rem;
+}
+
+.finalResults {
+    display: flex;
+    margin: auto;
+    border: 5px solid var(--borderYellow);
+    padding: 1rem;
+    font-size: 2rem;
+}
+.currentScore {
+    display: flex;
+    border: 5px solid var(--borderYellow);
+    padding: 1rem;
+    font-size: 3rem;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
