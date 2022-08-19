@@ -2,6 +2,7 @@
 function getComputerChoice() {
     let arr = ["Rock", "Paper", "Scissors"];
     let choice = arr[Math.floor(Math.random() * arr.length)];
+    changeCpuBorder(choice);
     return choice;
 }
 
@@ -24,15 +25,22 @@ const roundChoices = document.querySelector('.roundChoices');
 const roundResults = document.querySelector('.roundResults');
 const finalResults = document.querySelector('.finalResults');
 const choiceButtons = document.querySelector('.choiceButtons');
-const currentScore = document.querySelector(".currentScore");
+const currentScore = document.querySelector('.currentScore');
+const allButtons = document.querySelectorAll('.allButtons');
 
 // Makes borders not appear before choices are made
 roundResults.style.display = "none";
-finalResults.style.display = "none"
+finalResults.style.display = "none";
+roundChoices.style.display = "none";
 
 // Plays round with playerSelection as button clicked,
 // then uses checkWinner to declare winner
 rock.addEventListener('click', function () {
+    allButtons.forEach((item) => {
+        item.style.border = "";
+    });
+    rock.style.borderLeft = "5px solid blue";
+    rock.style.borderTop = "5px solid blue";
     const playerSelection = "Rock";
     const computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
@@ -41,6 +49,11 @@ rock.addEventListener('click', function () {
 
 
 paper.addEventListener('click', function () {
+    allButtons.forEach((item) => {
+        item.style.border = "";
+    });
+    paper.style.borderLeft = "5px solid blue";
+    paper.style.borderTop = "5px solid blue";
     const playerSelection = "Paper";
     const computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
@@ -48,6 +61,11 @@ paper.addEventListener('click', function () {
 });
 
 scissors.addEventListener('click', function () {
+    allButtons.forEach((item) => {
+        item.style.border = "";
+    });
+    scissors.style.borderLeft = "5px solid blue";
+    scissors.style.borderTop = "5px solid blue";
     const playerSelection = "Scissors";
     const computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
@@ -66,27 +84,23 @@ function playRound(playerSelection, computerSelection) {
         win = true;
         tie = null;
         playerScore++;
-        // return roundResult;
     } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
         roundResults.textContent = "You win, Scissors beats Paper!";
         roundResults.style.display = "unset";
         win = true;
         tie = null;
         playerScore++;
-        // return roundResult;
     } else if (playerSelection === "Paper" && computerSelection === "Rock") {
         roundResults.textContent =  "You win, Paper beats Rock!";
         roundResults.style.display = "unset";
         win = true;
         tie = null;
         playerScore++;
-        // return roundResult;
     } else if (playerSelection === computerSelection) {
         roundResults.textContent =  "You tied, try again!";
         roundResults.style.display = "unset";
         tie = true;
         win = null;
-        // return roundResult;
     } else {
         roundResults.textContent =  `You lose, ${computerSelection} beats ${playerSelection}.`;
         roundResults.style.display = "unset";
@@ -97,6 +111,7 @@ function playRound(playerSelection, computerSelection) {
 
     roundChoices.textContent = `You chose ${playerSelection} and the computer chose ${computerSelection}`;
     currentScore.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
+    differentChoicesBorder(playerSelection, computerSelection);
 };
 
 // Resets game and page to default
@@ -108,6 +123,9 @@ function scoreReset () {
     finalResults.style.display = "none";
     currentScore.textContent = "Player: 0 Computer: 0";
     choiceButtons.style.pointerEvents = "auto";
+    allButtons.forEach((item) => {
+        item.style.border = "";
+    });
 };
 
 reset.addEventListener('click', () => scoreReset());
@@ -118,9 +136,48 @@ function checkWinner(playerScore, computerScore) {
         finalResults.textContent = `You won ${playerScore} to ${computerScore}, good job!`;
         choiceButtons.style.pointerEvents = "none";
         finalResults.style.display = "unset";
+        finalResults.style.color = "green";
     } else if (computerScore === 5) {
         finalResults.textContent = `You lost ${playerScore} to ${computerScore}, try again!`;
         choiceButtons.style.pointerEvents = "none";
         finalResults.style.display = "unset";
+        finalResults.style.color = "red";
+    }
+};
+
+// Changes border of button to reflect computer choice
+function changeCpuBorder(choice) {
+    if (choice === "Rock") {
+        rock.style.borderRight = "5px solid red";
+        rock.style.borderBottom = "5px solid red";
+    } else if (choice === "Paper") {
+        paper.style.borderRight = "5px solid red";
+        paper.style.borderBottom = "5px solid red";
+    } else if (choice === "Scissors") {
+        scissors.style.borderRight = "5px solid red";
+        scissors.style.borderBottom = "5px solid red";    };
+};
+
+// Changes borders to full borders when player's choice is different from the
+// computer's choice
+function differentChoicesBorder(playerSelection, computerSelection) {
+    if (playerSelection === "Rock" && computerSelection === "Paper") {
+        rock.style.border = "5px solid blue";
+        paper.style.border = "5px solid red";
+    } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
+        rock.style.border = "5px solid blue";
+        scissors.style.border = "5px solid red";
+    } else if (playerSelection === "Paper" && computerSelection === "Rock") {
+        paper.style.border = "5px solid blue";
+        rock.style.border = "5px solid red";
+    } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
+        paper.style.border = "5px solid blue";
+        scissors.style.border = "5px solid red";
+    } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
+        scissors.style.border = "5px solid blue";
+        rock.style.border = "5px solid red";
+    } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
+        scissors.style.border = "5px solid blue";
+        paper.style.border = "5px solid red";
     }
 };

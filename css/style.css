@@ -48,9 +48,8 @@ body {
     width: 35%;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    box-shadow: 1.5px 1.5px black;
     border-radius: 10px;
-    border: 3px solid black;
+    border: 5px solid black;
     outline: none;
     transition: ease-out 0.3s;
     position: relative;
@@ -63,6 +62,7 @@ body {
     flex-direction: column;
     margin: auto;
     border: 5px solid rgb(252, 237, 106);
+    border-radius: 20px;
 }
 
 .instructionsHeader {
@@ -73,6 +73,12 @@ body {
 
 .instructionsList {
     font-size: 1.2rem;
+    padding-right: 4rem;
+    padding-left: 4rem;
+}
+
+.allButtons:hover {
+    box-shadow: 0 0 10px rgb(252, 237, 106);
 }
 
 .allButtons:before {
@@ -99,8 +105,10 @@ body {
 .roundResults {
     display: flex;
     margin: auto;
+    margin-top: 2rem;
     margin-bottom: 2rem;
     border: 5px solid var(--borderYellow);
+    border-radius: 20px;
     padding: 1rem;
     font-size: 1.5rem;
 }
@@ -109,12 +117,14 @@ body {
     display: flex;
     margin: auto;
     border: 5px solid var(--borderYellow);
+    border-radius: 20px;
     padding: 1rem;
     font-size: 2rem;
 }
 .currentScore {
     display: flex;
     border: 5px solid var(--borderYellow);
+    border-radius: 20px;
     padding: 1rem;
     font-size: 3rem;
 }
